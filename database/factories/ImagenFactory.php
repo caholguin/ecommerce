@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MarcaFactory extends Factory
+class ImagenFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,7 @@ class MarcaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->word()
+            'url' => 'producto/' . $this->faker->image('public/storage/productos',640,480,null,false)
         ];
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Producto;
 
 class CreateProductosTable extends Migration
 {
@@ -27,7 +28,8 @@ class CreateProductosTable extends Migration
             $table->unsignedBigInteger('marca_id');
             $table->foreign('marca_id')->references('id')->on('marcas');
 
-            $table->integer('cantidad');
+            $table->integer('cantidad')->nullable();
+            $table->enum('estado',[Producto::BORRADOR,Producto::PUBLICADO])->default(Producto::BORRADOR);
 
             $table->timestamps();
         });
