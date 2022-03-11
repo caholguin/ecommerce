@@ -12,8 +12,12 @@ class Producto extends Model
     const BORRADOR = 0;
     const PUBLICADO = 1;
 
+    protected $table = 'productos';
+
+
     protected $guarded  = ['id','created_at','update_at'];
 
+    //protected $fillable  = ['id','nombre','slug','descripcion','precio','subcategoria_id','marca_id','cantidad','estado','created_at','update_at'];
     //uno a muchos
     public function tallas()
     {

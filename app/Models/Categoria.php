@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
+    
 
     protected $fillable = ['nombre','slug','imagen','icono'];
 
@@ -25,6 +26,12 @@ class Categoria extends Model
 
     public function productos()
     {
-        return $this->hasManyThrough(Producto::class,SubCategoria::class);
+        return $this->hasManyThrough(Producto::class,SubCategoria::class,'categoria_id','subcategoria_id');
+    }
+
+    //url amigable
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

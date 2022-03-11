@@ -1,93 +1,49 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        @livewireStyles
-
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased bg-light">
-        <x-jet-banner />
-        @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-            <div class="container">
-                {{ $header }}
-            </div>
-        </header>
-
-        <!-- Page Content -->
-        <main class="container my-5">
-            {{ $slot }}
-        </main>
-
-        @stack('modals')
-
-        @livewireScripts
-
-        @stack('scripts')
-    </body>
-</html> --}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
-    <!-- Bootstrap CSS -->
-    <link href="{{asset('css/plantilla/bootstrap.min.css')}}" rel="stylesheet">
-      
-    <!-- helper class css -->
-    <link href="{{asset('css/plantilla/helper.min.css')}}" rel="stylesheet">
-    <!-- Plugins CSS -->
-    <link href="{{asset('css/plantilla/plugins.css')}}" rel="stylesheet">
-    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
     <link href="{{asset('css/plantilla/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/plantilla/skin-default.css')}}" rel="stylesheet" id="galio-skin">
 
-
-     <!-- Font-Awesome CSS -->
-     {{-- <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script> --}}
-     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
-
-    @livewireStyles
     <title>Ecommerce</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.6.6/glider.min.js" integrity="sha512-RidPlemZ+Xtdq62dXb81kYFycgFQJ71CKg+YbKw+deBWB0TLIqCraOn6k0CWDH2rGvE1a8ruqMB+4E4OLVJ7Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.6.6/glider.min.css" integrity="sha512-YM6sLXVMZqkCspZoZeIPGXrhD9wxlxEF7MzniuvegURqrTGV2xTfqq1v9FJnczH+5OGFl5V78RgHZGaK34ylVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    @livewireStyles
 </head>
+
 <body>
     @livewire('navegacion')
 
+   
+
+    <main>
+        {{ $slot }}
+    </main>
+
+    
     @livewireScripts
 
-      <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
-      <script src="{{asset('js/plantilla/vendor/modernizr-3.6.0.min.js')}}"></script>
-      <!-- Jquery Min Js -->
-      <script src="{{asset('js/plantilla/vendor/jquery-3.3.1.min.js')}}"></script>
-      <!-- Popper Min Js -->
-      <script src="{{asset('js/plantilla/vendor/popper.min.js')}}"></script>
-      <!-- Bootstrap Min Js -->
-      <script src="{{asset('js/plantilla/vendor/bootstrap.min.js')}}"></script>
-      <!-- Plugins Js-->
-      <script src="{{asset('js/plantilla/plugins.js')}}"></script>
-      <!-- Ajax Mail Js -->
-      <script src="{{asset('js/plantilla/ajax-mail.js')}}"></script>
-      <!-- Active Js -->
-      <script src="{{asset('js/plantilla/main.js')}}"></script>
-      <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
-      <script src="{{asset('js/plantilla/switcher.js')}}"></script>
+    
+    <script src="{{asset('js/plantilla/script.js')}}"></script>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+    
+    @stack('script')
+    
+
+
 </body>
 </html>

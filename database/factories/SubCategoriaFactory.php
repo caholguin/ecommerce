@@ -15,7 +15,7 @@ class SubCategoriaFactory extends Factory
     public function definition()
     {
         return [
-            'imagen' => 'subcategoria/' . $this->faker->image('public/storage/subcategorias',640, 480, null,false)
+            'imagen' => 'subcategorias/' . $this->faker->image('public/storage/subcategorias',640, 480, null,false)
         ];
     }
 }

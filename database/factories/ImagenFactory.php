@@ -14,7 +14,7 @@ class ImagenFactory extends Factory
     public function definition()
     {
         return [
-            'url' => 'producto/' . $this->faker->image('public/storage/productos',640,480,null,false)
+            'url' => 'productos/' . $this->faker->image('public/storage/productos',640,480,null,false)
         ];
     }
 }
