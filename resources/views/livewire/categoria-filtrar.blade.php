@@ -44,7 +44,8 @@
                 <div class="card-productos" >
                     <img class="img-productos" src="{{ Storage::url($producto->imagenes->first()->url) }}" height="150" width="250" class="img-producto" alt="" >
                     <div class="container">
-                        <h3 >{{Str::limit($producto->nombre, 10)}}</h3>
+                        <h3><a class="nombre-productos" href="{{route('productos.show',$producto)}}">
+                            {{Str::limit($producto->nombre, 10)}}</a></h3>
                         <p style="color: red">${{$producto->precio}}</p>                            
                         <div class="stars">
                             <i class="fas fa-star"></i>
@@ -53,9 +54,9 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                             (1)
-                            <div>
+                            {{-- <div>
                                 <a href="#" class="btn-carrito">Mas información</a>
-                            </div>  
+                            </div>   --}}
                         </div>
                     </div>
                 </div>

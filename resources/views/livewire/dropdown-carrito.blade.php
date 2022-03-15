@@ -1,31 +1,28 @@
 <div class="shopping-cart">
+    @forelse (Cart::content() as $item)
     <div class="box">
         <i class="fas fa-trash"></i>            
-        <img src="image/cart-img-1.png" alt="">
+        <img src="{{$item->options->imagen}}" alt="">
         <div class="content">
-            <h3>watermelon</h3>
-            <span class="price">$4.99/-</span>
-            <span class="quantity">qty : 1</span>
+            <h3>{{$item->name}}</h3>
+            <span class="price">${{$item->price}}</span>
+            <span class="quantity">Cantidad:{{$item->qty}}</span>
         </div>
-    </div>
-    <div class="box">
-        <i class="fas fa-trash"></i>
-        <img src="image/cart-img-2.png" alt="">
-        <div class="content">
-            <h3>onion</h3>
-            <span class="price">$4.99/-</span>
-            <span class="quantity">qty : 1</span>
-        </div>
-    </div>
-    <div class="box">
-        <i class="fas fa-trash"></i>
-        <img src="image/cart-img-3.png" alt="">
-        <div class="content">
-            <h3>chicken</h3>
-            <span class="price">$4.99/-</span>
-            <span class="quantity">qty : 1</span>
-        </div>
-    </div>
-    <div class="total"> total : $19.69/- </div>
-    <a href="#" class="btn">checkout</a>
+    </div>  
+
+    @empty
+        <div class="box">            
+            <div class="content">
+                <h3>No hay productos en el carrito</h3>                
+            </div>
+        </div>    
+    @endforelse
+
+    @if (Cart::count())
+        <div class="total">Total: {{Cart::subtotal()}} </div>
+        
+        <button  class="btn-cart">Ir al carrito</button>
+      
+    @endif
+    
 </div>

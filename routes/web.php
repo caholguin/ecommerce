@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::get('/', WelcomeController::class);
 
 Route::get('categorias/{categoria}',[CategoriaController::class,'show'])->name('categorias.show');
 
+Route::get('productos/{producto}',[ProductoController::class,'show'])->name('productos.show');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+route::get('prueba',function(){
+    \Cart::destroy();
+});

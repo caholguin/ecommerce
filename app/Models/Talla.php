@@ -20,7 +20,7 @@ class Talla extends Model
     //muchos a muchos
     public function colores()
     {
-        return $this->belongsToMany(Color::class);
+        return $this->belongsToMany(Color::class)->withPivot('cantidad');
     }
 
 

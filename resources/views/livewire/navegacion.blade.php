@@ -1,5 +1,5 @@
 <header class="header" >
-    <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> groco </a>
+    <a href="/" class="logo"> <i class="fas fa-shopping-basket"></i> groco </a>
     <nav class="navbar">
 
         
