@@ -11,11 +11,15 @@ class AgregarCarritoItem extends Component
 {
     public $producto,$cantidad;    
     public $qty = 1;
-    public $options = [];
+    public $options = [
+        'color_id' => null,
+        'talla_id' => null
+    ];
 
     public function mount()
     {
-        $this->cantidad = $this->producto->cantidad;
+        // $this->cantidad = $this->producto->cantidad;
+        $this->cantidad = qty_available($this->producto->id);
         $this->options['imagen'] = Storage::url($this->producto->imagenes->first()->url);
     }
 
@@ -36,6 +40,14 @@ class AgregarCarritoItem extends Component
                     'weight' => 550, 
                     'options' => $this->options                   
         ]);
+
+        $this->cantidad = qty_available($this->producto->id);
+
+        $this->reset('qty');
+
+        $this->emitTo('dropdown-carrito','render');
+        $this->emitTo('navegacion','render');
+
     }
 
     public function render()

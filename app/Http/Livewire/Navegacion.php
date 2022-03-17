@@ -7,6 +7,8 @@ use App\Models\Categoria;
 
 class Navegacion extends Component
 {
+    protected $listeners = ['render'];
+
     public function render()
     {
         $categorias = Categoria::all();

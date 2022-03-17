@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Livewire\CarritoCompras;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 route::get('prueba',function(){
     \Cart::destroy();
 });
+
+Route::get('carrito-compras', CarritoCompras::class)->name('carrito-compras');
+
+

@@ -7,7 +7,13 @@
             <h3>{{$item->name}}</h3>
             <span class="price">${{$item->price}}</span>
             <span class="quantity">Cantidad:{{$item->qty}}</span>
-        </div>
+            @isset($item->options['color'])
+                <span class="quantity">Color:{{$item->options['color']}}</span>                
+            @endisset  
+            @isset($item->options['talla'])
+                <span class="quantity">{{$item->options['talla']}}</span>                
+            @endisset  
+        </div>        
     </div>  
 
     @empty
@@ -21,7 +27,7 @@
     @if (Cart::count())
         <div class="total">Total: {{Cart::subtotal()}} </div>
         
-        <button  class="btn-cart">Ir al carrito</button>
+        <a style="margin-bottom: 100px" href="{{route('carrito-compras')}}"  class="btn-cart">Ir al carrito</a style="margin-bottom: 10px">
       
     @endif
     

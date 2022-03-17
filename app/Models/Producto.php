@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,6 +19,23 @@ class Producto extends Model
     protected $guarded  = ['id','created_at','update_at'];
 
     //protected $fillable  = ['id','nombre','slug','descripcion','precio','subcategoria_id','marca_id','cantidad','estado','created_at','update_at'];
+
+    public function getStockAttribute()
+    {
+        if ($this->subcategoria->talla) {
+            return ColorTalla::whereHas('talla.producto', function(Builder $query){
+                $query->where('id', $this->id);
+            })->sum('cantidad');
+        }elseif($this->subcategoria->color) {
+            return ColorProducto::whereHas('producto', function(Builder $query){
+                $query->where('id', $this->id);
+            })->sum('cantidad');
+        }else{
+            return $this->cantidad;
+        }
+        
+    }
+
     //uno a muchos
     public function tallas()
     {

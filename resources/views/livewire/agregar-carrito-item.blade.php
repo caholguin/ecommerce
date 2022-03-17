@@ -1,4 +1,7 @@
-<div x-data>    
+<div x-data>   
+
+    {{-- {{$producto->stock}}  --}}
+    
     <br>
     <span style="font-size: 20px">Stock disponible: {{$cantidad}}</span>
     <br>
@@ -14,20 +17,24 @@
         </button> 
 
         <span class="numero">{{$qty}}</span> 
+        
         <button class="btns"
-        @if ($qty >= $cantidad)
-            disabled
-            x-bind:disabled="$wire.qty >= $wire.cantidad"
-        @endif
+            @if ($qty >= $cantidad )
+                disabled
+                x-bind:disabled="$wire.qty >= $wire.cantidad"
+            @endif
             wire:loading.attr="disabled" 
             wire:target="increment" 
-            wire:click="increment">+</button>  
+            wire:click="increment">+
+        </button>  
 
-            <button class="btn-carrito espacio"
+        <button class="btn-carrito espacio"
+            @if ($qty > $cantidad)
+                disabled            
+            @endif
             wire:click="agregarItem"
             wire:loading.attr="disabled"
-            wire:target="agregarItem"
-             >Agregar al carrito</button> 
- 
-      
+            wire:target="agregarItem"           
+            >Agregar al carrito
+        </button> 
 </div>

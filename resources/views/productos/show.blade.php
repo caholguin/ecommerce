@@ -1,5 +1,5 @@
 <x-app-layout>   
-    <div class="smallcontainer single-product" style="margin-left: 20px;margin-top:100px">
+    <div class="smallcontainer single-product" style="margin-left: 20px">
         <div class="row">
             <div class="col-2 flexslider">
                 <div class="small-img-row ">
@@ -32,22 +32,7 @@
                         @livewire('agregar-carrito-item', ['producto' => $producto])
                     @endif
                     
-                    {{-- <select name="" id="">
-                        <option value="">Seleccione un color</option>
-                        <option value="">M</option>
-                        <option value="">L</option>
-                        <option value="">X</option>
-                        <option value="">XL</option>
-                    </select> --}}
-                    {{-- <select name="" id="">
-                        <option value="">Seleccione la talla</option>
-                        <option value="">M</option>
-                        <option value="">L</option>
-                        <option value="">X</option>
-                        <option value="">XL</option>
-                    </select> --}}
-                    {{-- <input type="number" value="1">
-                    <a href="" class="btn-carrito">Agregar al carrito</a> --}}
+                  
                     <h3 class="h3-detalle-producto">Detalle de producto <i class="fa fa-indent"></i></h3>
                     <br>
                     <p class="p-detalle-producto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat cumque amet dolores possimus magnam iste architecto iure nihil quia illum, vel voluptatibus odio. Repellat totam expedita asperiores nobis illo non!</p>
@@ -55,17 +40,7 @@
             </div>
         </div>
    </div> 
-
-
-   {{-- <div class="flexslider" style="margin-top: 100px">
-    <ul class="slides">
-        @foreach ($producto->imagenes as $imagen)            
-            <li data-thumb="{{Storage::url($imagen->url)}}">
-                <img src="{{Storage::url($imagen->url)}}" />
-            </li>      
-        @endforeach
-    </ul>
-  </div> --}}
+  
 
   @push('script')
 

@@ -21,7 +21,11 @@
         {{-- @livewire('buscador') --}}
         <div class="fas fa-search" id="search-btn"></div>
         <div class="fas fa-shopping-cart" id="cart-btn">
-            <span id="checkout_items" class="checkout_items">0</span>
+            @if (Cart::count())
+                <span id="checkout_items" class="checkout_items">{{Cart::count()}}</span>                
+            @else
+                <span id="checkout_items" class="checkout_items">0</span>
+            @endif
         </div>
         <div class="fas fa-user" id="login-btn"></div>
     </div>
@@ -43,6 +47,12 @@
     </div>
     @endauth
 </header>
+
+<section class="home" id="home">
+
+   
+
+</section>
 
 
 

@@ -8,7 +8,14 @@
 
 
     <br>
-    <span style="font-size: 20px">Stock disponible: {{$cantidad}}</span>
+    <span style="font-size: 20px">Stock disponible: 
+         @if ($cantidad)
+            {{$cantidad}}
+        @else
+            {{$producto->stock}}    
+        @endif  
+        
+    </span>
     <br>
         <button 
             class="btns"
@@ -32,9 +39,14 @@
             wire:click="increment">+</button>    
 
             <button  class="btn-carrito espacio" 
-            @if (!$cantidad)
+            @if (!$cantidad )
                 disabled
-            @endif>
+                
+                @endif
+                 wire:click="agregarItem"
+                wire:loading.attr="disabled"
+                 wire:target="agregarItem"
+            >
             Agregar al carrito</button> 
 
     
