@@ -31,5 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TallaSeeder::class);
 
         $this->call(ColorTallaSeeder::class);
+
+        $this->call(DepartamentoSeeder::class);
+
     }
 }

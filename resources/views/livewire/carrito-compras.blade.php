@@ -95,7 +95,7 @@
                         <h1>Valor Total: ${{Cart::subTotal()}}</h1>
                     </div>
                     <div class="texto-detalle-producto-2">
-                        <a class="btn boton-continuar" href="">Continuar</a>
+                        <a class="btn boton-continuar" href="{{route('ordenes.create')}}">Continuar</a>
                     </div>
                 </div>
 

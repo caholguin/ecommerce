@@ -1315,3 +1315,136 @@ p{
 .boton-continuar{
     margin: auto;
 }
+
+
+
+
+
+
+
+/* orden */
+
+.contenedor-orden {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px 0;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;	
+    gap: 20px;
+}
+
+.text-input-orden{
+    font-size: 15px;
+    color: #4b4848;
+}
+
+.titulo-orden {
+	font-size: 24px;
+	padding: 20px 0;
+}
+
+.contenedor-orden-hijo {
+    display: grid;
+	gap: 20px;
+}
+
+.card-orden {
+	border-radius: 10px;
+	/* min-height: 50px; */
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	/* margin-bottom: 20px; */    
+}
+
+.card-orden .textos-orden {
+	height: 100%;
+	
+	
+}
+
+.banner-orden {
+	border-radius: 10px;
+	text-align: left;
+	padding: 20px;
+   
+	background-size: cover;
+	background-position: center center;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+
+.banner-orden ul {
+	
+}
+
+.banner-orden ul li {
+	
+}
+
+.banner-orden .boton-orden {
+	
+	display: block;
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+	border: none;
+	border-radius: 100px;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+.radio{
+    margin-top: 20px;
+}
+
+
+
+
+
+
+.input-orden  {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+.input-orden {
+    width: 100%;
+    /* background-color: #4CAF50; */
+    /* color: white; */
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    
+}
+  
+.span-price, .span-quantity{
+    font-size: 15px;
+    margin-left: 5px;
+}
+.span-nombre{
+    color: #000000;
+    font-size: 20px;
+    margin-left: 5px;
+}
+.p-orden{
+    color: #000000;
+}
+  
+  
+  
