@@ -9,13 +9,15 @@ class Orden extends Model
 {
     use HasFactory;
 
+    protected $table = 'ordenes';
+
     protected $guarded = ['id','created_at','updated_at','estado'];
 
-    const PENDIENTE = 0;
-    const RECIBIDO = 1;
-    const ENVIADO = 2;
-    const ENTREGADO = 3;
-    const ANULADO = 4;
+    const PENDIENTE = 1;
+    const RECIBIDO = 2;
+    const ENVIADO = 3;
+    const ENTREGADO = 4;
+    const ANULADO = 5;
 
     //uno a muchos inversa
     public function departamento()

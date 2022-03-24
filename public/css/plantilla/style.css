@@ -84,7 +84,7 @@ html{
 }
 
 body{
-    background:#eee;
+    background:rgb(236, 236, 236);
 }
 
 section{
@@ -1329,7 +1329,6 @@ p{
 	max-width: 1200px;
 	margin: auto;
 	padding: 40px 0;
-
     display: grid;
     grid-template-columns: 2fr 1fr;	
     gap: 20px;
@@ -1445,6 +1444,133 @@ p{
 .p-orden{
     color: #000000;
 }
+
+
   
+  
+  .grid-orden{
+    display: grid;
+    grid-template-columns: 3fr auto;	
+    gap: 20px;
+  }
+
+
+  .select-orden  {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+.select-orden {
+    width: 100%;
+    /* background-color: #4CAF50; */
+    /* color: white; */
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    
+}
+
+.text-select-orden{
+    font-size: 15px;
+    color: #4b4848;
+}
+
+.hidden {
+    visibility: visible;
+  }
+  
+.hidden-1 {
+    visibility: hidden;
+  }
+
+
+
+/* .grid-orden{
+display: grid;
+grid-template-columns: 3fr auto;	
+gap: 20px;
+} */
+
+
+.card-pago {
+	border-radius: 10px;
+    background: #f8f8f8;
+	/* min-height: 50px; */
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	/* margin-bottom: 20px; */    
+    
+    
+}
+
+
+.contenedor-pago {
+	
+	max-width: 1200px;
+	margin: auto;
+	
+    display: grid;
+    grid-template-columns: 2fr 1fr;	
+    gap: 20px;
+}
+
+.titulo-detalle-pago{
+    font-size: 18px;
+}
+
+.contenedor-pago-tabla{
+    max-width: 1200px;
+	margin: auto;
+}
+
+.contenedor-pago-total {
+	
+	max-width: 1200px;
+	margin: auto;
+	
+    display: grid;
+    grid-template-columns: 2fr auto;	
+    gap: 20px;
+}
+
+.contenedor-pago-iconos {
+	
+	max-width: 1200px;
+	margin: auto;
+	align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;	
+    gap: 450px;
+}
+
+.icono{
+    color: rgb(20, 20, 20);
+    font-size: 30px;
+    padding: 20px;
+    /* background-color: rgb(255, 255, 255); */
+    border-radius: 50%;
+    
+  }
+  
+  .icono i{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 10px;
+    margin: 0px 5px;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+  }
   
   

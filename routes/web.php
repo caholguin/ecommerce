@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\OrdenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Livewire\CarritoCompras;
 use App\Http\Livewire\CrearOrden;
+use App\Http\Livewire\PagoOrden;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
 
@@ -39,4 +41,8 @@ Route::get('carrito-compras', CarritoCompras::class)->name('carrito-compras');
 
 Route::get('ordenes/create',CrearOrden::class)->middleware('auth')->name('ordenes.create');
 
+Route::get('ordenes/{orden}/pago',PagoOrden::class)->name('ordenes.pago');
 
+Route::get('ordenes/{orden}', [OrdenController::class, 'show'])->name('ordenes.show');
+
+// Route::get('ordenes/{orden}/pago',[OrdenController::class,'pago'])->name('ordenes.pago');
