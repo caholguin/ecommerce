@@ -146,6 +146,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'categoria_id' => 'categoria',
+        'subcategoria_id' => 'subcategoria',
+        'marca_id' => 'marca'
+
+    ],
 
 ];

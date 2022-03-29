@@ -5,9 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Orden;
 use Livewire\Component;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 
 class PagoOrden extends Component
 {
+    use AuthorizesRequests;
+
     public $orden;
 
     protected $listeners = ['pagoOrden'];
@@ -29,6 +33,11 @@ class PagoOrden extends Component
 
     public function render()
     {
+        $this->authorize('author',$this->orden);
+
+        $this->authorize('payment',$this->orden);
+
+
         $items = json_decode($this->orden->contenido);
 
         return view('livewire.pago-orden', compact('items'));

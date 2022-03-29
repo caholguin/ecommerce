@@ -28,8 +28,14 @@
     <title>Ecommerce</title>
 </head>
 
+<x-jet-banner/>
+
 <body>
+    
+    
+    
     @livewire('navegacion')
+    
 
    
 

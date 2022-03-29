@@ -15,6 +15,7 @@ class AgregarCarritoItemColor extends Component
 
     public $qty = 1;
     public $cantidad = 0;
+
     public $options = [
         'talla_id' => null
     ];
@@ -31,6 +32,7 @@ class AgregarCarritoItemColor extends Component
         // $this->cantidad = $color->pivot->cantidad;
         $this->cantidad = qty_available($this->producto->id,$color->id);
         $this->options['color'] = $color->nombre;
+        $this->options['color_id'] = $color->id;
     }
     
     public function decrement(){

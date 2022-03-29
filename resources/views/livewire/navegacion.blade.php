@@ -39,7 +39,10 @@
         @csrf
         <button type="submit" class="btn">Cerrar sesión</button>
         {{-- <input type="submit" value="login now" class="btn"> --}}
+        <a class="btn" href="{{route('ordenes.index')}}">Mis ordenes</a>
+        <a class="btn" href="{{route('admin.index')}}">Admin</a>
     </form>
+   
     @else
     <div  class="login-form" >
         <a class="btn" href="{{route('login')}}">Iniciar sesión</a>

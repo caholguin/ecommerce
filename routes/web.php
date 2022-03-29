@@ -1,13 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\OrdenController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Livewire\CarritoCompras;
 use App\Http\Livewire\CrearOrden;
 use App\Http\Livewire\PagoOrden;
+use App\Models\Orden;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Routing\Router;
 
@@ -32,17 +33,46 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// route::get('prueba',function(){
-//     \Cart::destroy();
-// });
+route::get('prueba1',function(){
+    \Cart::destroy();
+ });
 
 Route::get('carrito-compras', CarritoCompras::class)->name('carrito-compras');
 
 
-Route::get('ordenes/create',CrearOrden::class)->middleware('auth')->name('ordenes.create');
+Route::middleware(['auth'])->group(function(){
 
-Route::get('ordenes/{orden}/pago',PagoOrden::class)->name('ordenes.pago');
+    Route::get('ordenes/create',CrearOrden::class)->name('ordenes.create');
 
-Route::get('ordenes/{orden}', [OrdenController::class, 'show'])->name('ordenes.show');
+    Route::get('ordenes/{orden}/pago',PagoOrden::class)->name('ordenes.pago');
+
+    Route::get('ordenes/{orden}', [OrdenController::class, 'show'])->name('ordenes.show');
+
+    Route::get('ordenes', [OrdenController::class,'index'])->name('ordenes.index');
+
+});
 
 // Route::get('ordenes/{orden}/pago',[OrdenController::class,'pago'])->name('ordenes.pago');
+
+
+Route::get('prueba',function (){
+
+    $hora = now()->subMinute(10);
+
+   $ordenes = Orden::where('estado',1)->whereTime('created_at','<=', $hora)->get();
+
+   foreach ($ordenes as $orden) {
+    $items = json_decode($orden->contenido);
+   }
+
+   foreach ($items as $item) {
+        increase($item);
+   }
+
+   $orden->estado = 5;
+   $orden->save();
+
+   return "se formateo con exito";
+
+   //return cantidad(11, $color_id=2, $talla_id = 1);
+});

@@ -98,16 +98,13 @@ class CrearOrden extends Component
 
         $orden->save();
 
+        foreach (Cart::content() as $item) {
+            discount($item);
+        }
+
         Cart::destroy();
         
         return redirect()->route('ordenes.pago',$orden);
-        /*$orden->tipo_envio = $this->tipo_envio;
-        $orden->tipo_envio = $this->tipo_envio;
-        $orden->tipo_envio = $this->tipo_envio;
-        $orden->tipo_envio = $this->tipo_envio;*/
-
-
-
     }
 
     public function render()

@@ -32,6 +32,7 @@ class AgregarCarritoItemTalla extends Component
         $talla = Talla::find($value);
         $this->colores = $talla->colores;
         $this->options['talla'] = $talla->nombre;
+        $this->options['talla_id'] = $talla->id;
     }
 
     public function updatedColorId($value)
@@ -41,6 +42,7 @@ class AgregarCarritoItemTalla extends Component
         // $this->cantidad = $color->pivot->cantidad;
         $this->cantidad = qty_available($this->producto->id,$color->id,$talla->id);
         $this->options['color'] = $color->nombre;
+        $this->options['color_id'] = $color->id;
     }
 
     public function decrement(){

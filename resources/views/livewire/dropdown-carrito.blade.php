@@ -1,7 +1,7 @@
 <div class="shopping-cart">
     @forelse (Cart::content() as $item)
     <div class="box">
-        <i class="fas fa-trash"></i>            
+        {{-- <i class="fas fa-trash"></i>             --}}
         <img src="{{$item->options->imagen}}" alt="">
         <div class="content">
             <h3>{{$item->name}}</h3>

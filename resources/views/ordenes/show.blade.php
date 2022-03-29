@@ -28,6 +28,12 @@
 
             <div class="contenedor-pago card-pago" style="margin-bottom: 20px">
                 <h1>NÚMERO DE ORDEN - {{$orden->id}} </h1>
+
+                @if ($orden->estado == 1)
+                    <div class="flex-boton">
+                        <a href="{{route('ordenes.pago',$orden)}}" class="btn-17">Ir a pagar</a>
+                    </div>
+                @endif
             </div>
 
 
