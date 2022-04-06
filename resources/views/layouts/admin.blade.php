@@ -19,13 +19,19 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
         rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">  
     <!-- Font Awesome-->
-    <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script>
+
+       {{-- <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- ico-font-->
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>   --}}
+
+
+    <!-- ico-font--> 
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/icofont.css') }}">
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/feather-icon.css') }}">
@@ -40,6 +46,10 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/responsive.css') }}">
 
+    {{-- dropzone  --}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     {{-- CKeditor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
 
@@ -49,6 +59,11 @@
     @livewireStyles
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+    {{-- dropzone  --}}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js" integrity="sha512-oQq8uth41D+gIH/NJvSJvVB85MFk1eWpMK6glnkg6I7EdMqC1XVkW7RxLheXwmFdG03qScCM7gKS/Cx3FYt7Tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="dark-only">
@@ -176,25 +191,25 @@
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
                                 </li>
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6>General</h6>
-                                    </div>
-                                </li>
+                                {{-- ************************************** --}}
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title active" href="javascript:void(0)"><i
-                                            data-feather="home"></i><span>Dashboard</span></a>
-                                    <ul class="nav-submenu menu-content" style="display: block;">
-                                        <li><a href=""
-                                                class="active">Default</a></li>
-                                        <li><a href=""
-                                                class="">Ecommerce</a></li>
-                                    </ul>
+                                    <a class="nav-link menu-title link-nav active" href="{{route('admin.index')}}"><i class="fas fa-grid"></i><span>Productos</span><div class="according-menu"></div></a>
                                 </li>
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6>Components</h6>
-                                    </div>
+                                
+                                <li class="dropdown">
+                                    <a class="nav-link menu-title link-nav active"
+                                     href="https://laravel.pixelstrap.com/viho/kanban">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" 
+                                     height="24" viewBox="0 0 24 24" fill="none"
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round" 
+                                      class="feather feather-monitor"><rect x="2" y="3"
+                                       width="20" height="14" rx="2" ry="2"></rect>
+                                       <line x1="8" y1="21" x2="16" y2="21"></line>
+                                       <line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                       <span>Kanban Board</span>
+                                       <div class="according-menu">
+                                           <i class="fa fa-angle-down"></i></div></a>
                                 </li>
                             </ul>
                         </div>
@@ -267,6 +282,17 @@
 
 
 @stack('script')
+
+    <script>
+    Livewire.on('errorTalla', mensaje => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: mensaje,
+        })
+    });
+    </script>
+
 </body>
 
 </html>

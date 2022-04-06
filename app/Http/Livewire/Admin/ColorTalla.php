@@ -2,17 +2,15 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Livewire\Component;
 use App\Models\Color;
-use App\Models\ColorProducto as Pivot;
+use Livewire\Component;
+use App\Models\ColorTalla as Pivot;
 
-class ColorProducto extends Component
+class ColorTalla extends Component
 {
-    public $producto,$colores,$color_id,$cantidad,$open = false;
+    public $talla,$colores,$color_id,$cantidad;
 
-    public $pivot, $pivot_color_id, $pivot_cantidad;
-
-    protected $listeners = ['delete'];
+    public $pivot,$pivot_color_id, $pivot_cantidad;
 
     protected $rules = [
         'color_id' => 'required',
@@ -30,17 +28,16 @@ class ColorProducto extends Component
 
         // Aca comprobamos si el color y la candidad exite 
         $pivot = Pivot::where('color_id', $this->color_id)
-        ->where('producto_id',$this->producto->id)
+        ->where('talla_id',$this->talla->id)
         ->first();
 
-        //Si existe actualiza la cantidad  
+        //Si existe actualiza la cantidad 
         if ($pivot) {
             $pivot->cantidad = $pivot->cantidad + $this->cantidad;
             $pivot->save();
-            
         } else {
             //Si no existe crea el registro
-            $this->producto->colores()->attach([
+            $this->talla->colores()->attach([
                 $this->color_id => [
                     'cantidad' => $this->cantidad
                 ]
@@ -51,19 +48,18 @@ class ColorProducto extends Component
 
         $this->emit('saved');
 
-        $this->producto = $this->producto->fresh();
+        $this->talla = $this->talla->fresh();
     }
 
     public function edit(Pivot $pivot)
     {
-        // dd($pivot);
         $this->pivot = $pivot;
         $this->pivot_color_id = $pivot->color_id;
         $this->pivot_cantidad = $pivot->cantidad;
 
-        $this->emit('show-modal-colorp','show modal');       
+        $this->emit('show-modal-cantidadColorTalla','show modal');  
     }
-
+    
     public function update()
     {
         $this->validate([
@@ -73,22 +69,18 @@ class ColorProducto extends Component
 
         $this->pivot->color_id = $this->pivot_color_id;
         $this->pivot->cantidad = $this->pivot_cantidad;
+
         $this->pivot->save();
+        $this->talla = $this->talla->fresh();
 
-        $this->producto = $this->producto->fresh();
-        $this->emit('color-atualizado','hide modal');       
+        $this->emit('cantidadColorTalla-atualizado','hide modal'); 
     }
 
-    public function delete(Pivot $pivot)
-    {
-        $pivot->delete();
-        $this->producto = $this->producto->fresh();
-    }
 
     public function render()
     {
-        $productoColores = $this->producto->colores;
+        $tallaColores = $this->talla->colores;
 
-        return view('livewire.admin.color-producto',compact('productoColores'));
+        return view('livewire.admin.color-talla',compact('tallaColores'));
     }
 }

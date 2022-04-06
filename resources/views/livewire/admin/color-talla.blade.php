@@ -1,4 +1,4 @@
-<div >  
+<div>
     <div class="card rounded container">
         <div class=" row mb-4">
             <label class="mb-2 mt-2">Color</label>
@@ -12,7 +12,7 @@
             @endforeach
 
             @error('color_id')
-                <small class="text-danger">{{$message}}</small>    
+            <small class="text-danger">{{$message}}</small>    
             @enderror
         </div>  
         
@@ -31,7 +31,8 @@
                 <button wire:click="save"
                 wire:loading.attr="disabled"
                 wire_target="save"
-                class="btn btn-primary  mb-4">Agregar
+                class="btn btn-primary  mb-4">
+                Agregar
                 </button>
             </div>
 
@@ -43,7 +44,7 @@
         </div>
     </div>
 
-    @if ($productoColores->count())
+    @if ($tallaColores->count())
         <div class="card rounded ">
             <div class="table-responsive ">
                 <table class="table table-hover" >
@@ -57,26 +58,26 @@
 
                     {{-- {{$pivot}}  --}}
                     <tbody>                
-                        @foreach ($productoColores as $productoColor)
-                            <tr wire:key="productoColor-{{$productoColor->pivot->id}}">
+                        @foreach ($tallaColores as $tallaColor)
+                            <tr wire:key="tallaColor-{{$tallaColor->pivot->id}}">
                                 <td class="text-capitalize">
                                     {{-- trae los datos de la relacion muhos a muchhos --}}
-                                {{-- {{$productoColor->pivot->color_id}} --}}
-                                {{-- {{$colores->where('id',$productoColor->pivot->color_id)->first()->nombre}} --}}
-                                {{$colores->find($productoColor->pivot->color_id)->nombre}}                             
+                                {{-- {{$tallaColor->pivot->color_id}} --}}
+                                {{-- {{$colores->where('id',$tallaColor->pivot->color_id)->first()->nombre}} --}}
+                                {{$colores->find($tallaColor->pivot->color_id)->nombre}}                             
                                 </td>
                                 <td>
-                                    {{$productoColor->pivot->cantidad}} unidades
+                                    {{$tallaColor->pivot->cantidad}} unidades
                                 </td>
                                 <td width="10px">
-                                    <button  type="button" wire:click="edit({{$productoColor->pivot->id}})" class="btn btn-pill btn-primary"
+                                    <button  type="button" wire:click="edit({{$tallaColor->pivot->id}})" class="btn btn-pill btn-primary"
                                         wire:loading.attr="disabled"
-                                        wire:target="edit({{$productoColor->pivot->id}})"
+                                        wire:target="edit({{$tallaColor->pivot->id}})"
                                         >Editar</button>                            
                                 </td>
                                 <td width="10px">
                                     <button
-                                    wire:click="$emit('deletePivot',{{$productoColor->pivot->id}})"
+                                    wire:click="$emit('deletePivot',{{$tallaColor->pivot->id}})"
                                     class="btn btn-pill btn-danger">eliminar</button>
                                 </td>
                             </tr>
@@ -86,10 +87,11 @@
             </div>  
         </div>
     @endif
-    
-  
-  <!-- Modal -->
-    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+
+
+
+    <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="editcantidadColorTalla" tabindex="-1" role="dialog">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -129,20 +131,22 @@
         </div>
     </div>
 
- 
+
+
+
+
+
 </div>
 
-
-    
 
 @push('script')
 <script>
     document.addEventListener('DOMContentLoaded',function(){
-        window.Livewire.on('show-modal-colorp',msg => {
-            $('#exampleModal').modal('show')                
+        window.Livewire.on('show-modal-cantidadColorTalla',msg => {
+            $('#editcantidadColorTalla').modal('show')                
         });
-        window.Livewire.on('color-atualizado',msg => {
-            $('#exampleModal').modal('hide')                
+        window.Livewire.on('cantidadColorTalla-atualizado',msg => {
+            $('#editcantidadColorTalla').modal('hide')                
         });
     });
 </script>
@@ -160,7 +164,7 @@
             }).then((result) => {
             if (result.isConfirmed) {
 
-                Livewire.emitTo('admin.color-producto','delete',pivot);
+                Livewire.emit('delete',pivot);
                 
                 Swal.fire(
                 'Color eliminado correctamente',
@@ -173,5 +177,3 @@
 </script>
 
 @endpush
-    
- 

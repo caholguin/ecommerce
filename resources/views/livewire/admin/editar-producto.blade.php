@@ -1,10 +1,40 @@
 <div>
-    <div class="container card rounded">
+    <style>
+        .dropzone{
+            background: #111727;
+        }        
+    </style>
+
     <h4 class="text-center mt-4">Complete esta informacíon para crear un producto</h4>
+
+    <div class="mb-4 form" wire:ignore>
+        <form  action="{{route('admin.productos.files',$producto)}}"            
+            method="POST"
+            class="dropzone"
+            id="my-awesome-dropzone">
+        </form>
+    </div>
+
+    @if ($producto->imagenes)
+
+        <section class="container card rounded mb-4">
+            <h5 class="mt-2">Imagenes del producto</h5>
+            <ul class="list-group list-group-horizontal">
+                @foreach ($producto->imagenes as $imagen)
+                    <li class="list-group-item">
+                        <img class="mt-2 mb-3" height="100" width="100" src="{{Storage::url($imagen->url)}}" alt="">
+                    </li>
+                @endforeach
+            </ul>
+        </section>
+
+    @endif
+   
+
+    <div class="container card rounded">
     {{-- {{$subcategoria_id}}  --}}
 
     {{-- {{$producto}} --}}
-
     <div class="row mt-4">
         <div class="col">
             <label class=""  for="">Categoría</label>
@@ -147,39 +177,46 @@
                 Atualizado
             </x-jet-action-message>
         </div>
-    </div>  
-
-
-
-
-   <style>
-       .ck-editor {
-        color: black;
-    }
-    
-   </style> 
+    </div>
+  
       
     </div>
     
 
 
-<div>
-    @if ($this->subcategoria)
-        
-    @if ($this->subcategoria->talla)
+    <div>
+        @if ($this->subcategoria)
+            
+        @if ($this->subcategoria->talla)
 
-        @livewire('admin.talla-producto', ['producto' => $producto], key('talla-producto' . $producto->id))
-        
-    @elseif($this->subcategoria->color)
-        
-        @livewire('admin.color-producto', ['producto' => $producto], key('color-producto' . $producto->id))
+            @livewire('admin.talla-producto', ['producto' => $producto], key('talla-producto' . $producto->id))
+            
+        @elseif($this->subcategoria->color)
+            
+            @livewire('admin.color-producto', ['producto' => $producto], key('color-producto' . $producto->id))
 
-    @endif
+        @endif
 
-    @endif
+        @endif
 
+
+    </div>
+
+
+    @push('script')
+        <script>
+            Dropzone.options.myAwesomeDropzone = {
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                dictDefaultMessage: "Arrastre una imagen al recuadro",
+                acceptedFiles: 'image/*',
+                paramName: "file", // The name that will be used to transfer the file
+                maxFilesize: 2, // MB
+            
+            };
+        </script>
+    @endpush
 
 </div>
 
-
-</div>

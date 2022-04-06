@@ -150,7 +150,9 @@ return [
         'categoria_id' => 'categoria',
         'subcategoria_id' => 'subcategoria',
         'marca_id' => 'marca',
-        'color_id' => 'color'
+        'color_id' => 'color',
+        'pivot_color_id' => 'color',
+        'pivot_cantidad' => 'cantidad'
 
     ],
 
