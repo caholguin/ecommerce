@@ -1,4 +1,5 @@
-<div class="container card rounded">
+<div>
+    <div class="container card rounded">
     <h4 class="text-center mt-4">Complete esta informacíon para crear un producto</h4>
     {{-- {{$subcategoria_id}}  --}}
 
@@ -57,15 +58,16 @@
         </div>
     </div>
 
-    {{-- {{$descripcion}} --}}
+     {{-- {{$descripcion}}  --}}
 
-    <div class="mt-4" >
-        <div wire:ignore>
-            <label for="">Descripción</label>
-            <textarea class="form-control " name="" id="" cols="" rows="4" 
-            wire:model="producto.descripcion"
-            x-data 
-            x-init="ClassicEditor.create($refs.miEditor)
+    <div wire:ignore class="mt-4" >
+        <div >
+            <label >Descripción</label>
+            <textarea class="form-control"  rows="4"
+             wire:model="producto.descripcion"
+            {{--x-data 
+            x-init="ClassicEditor
+            .create($refs.miEditor)
             .then(function(editor){
                 editor.model.document.on('change:data', () => {
                     @this.set('producto.descripcion',editor.getData())
@@ -74,13 +76,14 @@
             .catch( error => {
                 console.error( error );
             });"
-            x-ref="miEditor">
-            </textarea>
-        </div>
+            x-ref="miEditor"--}}>
+        </textarea> 
+        </div>        
         @error('producto.descripcion')
             <small class="text-danger">{{$message}}</small>    
         @enderror 
     </div>
+   
 
     <div class=" row mt-4">
         <div class="col">
@@ -123,19 +126,10 @@
         @endif
     @endif
 
-    @if ($this->subcategoria)
-        
-            @if ($this->subcategoria->talla)
 
-                @livewire('admin.talla-producto', ['producto' => $producto], key('talla-producto' . $producto->id))
-                
-            @elseif($this->subcategoria->color)
-                
-                @livewire('admin.color-producto', ['producto' => $producto], key('color-producto' . $producto->id))
-
-            @endif
-
-    @endif
+    
+    
+    
 
 
     <div class="row">       
@@ -153,7 +147,10 @@
                 Atualizado
             </x-jet-action-message>
         </div>
-    </div>
+    </div>  
+
+
+
 
    <style>
        .ck-editor {
@@ -162,7 +159,27 @@
     
    </style> 
       
-
+    </div>
     
+
+
+<div>
+    @if ($this->subcategoria)
+        
+    @if ($this->subcategoria->talla)
+
+        @livewire('admin.talla-producto', ['producto' => $producto], key('talla-producto' . $producto->id))
+        
+    @elseif($this->subcategoria->color)
+        
+        @livewire('admin.color-producto', ['producto' => $producto], key('color-producto' . $producto->id))
+
+    @endif
+
+    @endif
+
+
 </div>
 
+
+</div>

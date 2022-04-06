@@ -61,7 +61,7 @@
         <div wire:ignore>
             <label for="">Descripción</label>
             <textarea class="form-control " name="" id="" cols="" rows="4" 
-            wire:model="descripcion"
+            {{-- wire:model="descripcion"
             x-data 
             x-init="ClassicEditor.create($refs.miEditor)
             .then(function(editor){
@@ -72,7 +72,7 @@
             .catch( error => {
                 console.error( error );
             });"
-            x-ref="miEditor">
+            x-ref="miEditor"> --}}>
             </textarea>
         </div>
         @error('descripcion')

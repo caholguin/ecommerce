@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://laravel.pixelstrap.com/viho/assets/images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="https://laravel.pixelstrap.com/viho/assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="shortcut icon" href="" type="image/x-icon">
     <title>Eccomerce - admin</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,31 +21,34 @@
         rel="stylesheet">
     <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- ico-font-->
-    <link rel="stylesheet" type="text/css" href="https://laravel.pixelstrap.com/viho/assets/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/icofont.css') }}">
     <!-- Feather icon-->
-    <link rel="stylesheet" type="text/css" href="https://laravel.pixelstrap.com/viho/assets/css/feather-icon.css">
-    <!-- Plugins css start-->
-    <!-- Plugins css Ends-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/feather-icon.css') }}">
+    
     <!-- Bootstrap css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="https://laravel.pixelstrap.com/viho/assets/css/style.css">
-    <link id="color" rel="stylesheet" href="https://laravel.pixelstrap.com/viho/assets/css/color-1.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/style.css') }}">
+    
+    <link id="color" rel="stylesheet" href="{{ asset('css/admin/color-1.css') }}" media="screen">
     <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="https://laravel.pixelstrap.com/viho/assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/responsive.css') }}">
 
     {{-- CKeditor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
 
     <script src="//unpkg.com/alpinejs" defer></script>
 
-
+    
     @livewireStyles
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="dark-only">
@@ -182,9 +185,9 @@
                                     <a class="nav-link menu-title active" href="javascript:void(0)"><i
                                             data-feather="home"></i><span>Dashboard</span></a>
                                     <ul class="nav-submenu menu-content" style="display: block;">
-                                        <li><a href="https://laravel.pixelstrap.com/viho/dashboard"
+                                        <li><a href=""
                                                 class="active">Default</a></li>
-                                        <li><a href="https://laravel.pixelstrap.com/viho/dashboard/dashboard-02"
+                                        <li><a href=""
                                                 class="">Ecommerce</a></li>
                                     </ul>
                                 </li>
@@ -204,8 +207,8 @@
             <!-- Page Sidebar Ends-->
             <div class="page-body">
               {{ $slot }}
+              <br>
             </div>
-        
             
 
 
@@ -232,7 +235,7 @@
 
 
     <!-- latest jquery-->
-    <script src="https://laravel.pixelstrap.com/viho/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('js/plantillaadmin/jquery-3.5.1.min.js') }}"></script>
     <!-- feather icon js-->
     <script src="{{ asset('js/plantillaadmin/feather-icon/feather.min.js') }}"></script>
     <script src="{{ asset('js/plantillaadmin/feather-icon/feather-icon.js') }}"></script>
@@ -248,14 +251,22 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
 
-    <!-- Plugins JS start-->
-
-    <!-- Plugins JS Ends-->
-    <!-- Theme js-->
-    <script src="https://laravel.pixelstrap.com/viho/assets/js/script.js"></script>
+    
+    <script src="{{ asset('js/plantillaadmin/script.js') }}"></script>
     {{-- <script src="https://laravel.pixelstrap.com/viho/assets/js/theme-customizer/customizer.js"></script> --}}
-    <!-- Plugin used-->
+    
 
+   
+    
+
+
+
+   
+<script src="{{ asset('js/app.js') }}"></script>
+
+
+
+@stack('script')
 </body>
 
 </html>

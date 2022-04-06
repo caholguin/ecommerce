@@ -44,7 +44,7 @@ function qty_available($producto_id, $color_id = null, $talla_id = null)
     cantidad($producto_id, $color_id, $talla_id) - qty_added($producto_id, $color_id, $talla_id);
 }
 
-function discount($item){
+/*function discount($item){
     $producto = Producto::find($item->id);
     $qty_available = qty_available($item->id, $item->options->color_id, $item->options->talla_id);
 
@@ -73,9 +73,9 @@ function discount($item){
     }
 
 
-}
+}*/
 
-function increase($item){
+/*function increase($item){
     
     $producto = Producto::find($item->id);
 
@@ -106,4 +106,4 @@ function increase($item){
     }
 
     
-}
+}*/
