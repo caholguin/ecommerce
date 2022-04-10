@@ -15,19 +15,32 @@
         </form>
     </div>
 
-    @if ($producto->imagenes)
-
-        <section class="container card rounded mb-4">
+    @if ($producto->imagenes->count())
+        <section  class="container card rounded mb-4">
             <h5 class="mt-2">Imagenes del producto</h5>
-            <ul class="list-group list-group-horizontal">
+            <div class="row"> 
                 @foreach ($producto->imagenes as $imagen)
-                    <li class="list-group-item">
-                        <img class="mt-2 mb-3" height="100" width="100" src="{{Storage::url($imagen->url)}}" alt="">
-                    </li>
-                @endforeach
-            </ul>
+                    <div class="col-sm-6 col-xl-2 box-col-6 des-xl-50" wire:key="imagen-{{$imagen->id}}">
+                        <div class="mt-3">
+                            <div class="blog-box blog-grid">
+                                <div class="blog-wrraper">
+                                <img width="100" height="100" class=" " src="{{Storage::url($imagen->url)}}" alt="">
+                                </div>
+                                <div class="blog-details-second">
+                                    <div class="blog-post-date">
+                                        <button 
+                                            wire:click="deleteImagen({{$imagen->id}})"
+                                            wire:loading.attr="disabled"
+                                            wire:target="deleteImagen({{$imagen->id}})"
+                                            type="button" class="btn btn-danger">x</button>
+                                    </div>	                     
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                @endforeach   
+            </div>
         </section>
-
     @endif
    
 

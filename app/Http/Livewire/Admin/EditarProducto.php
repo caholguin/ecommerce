@@ -3,11 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Categoria;
+use App\Models\Imagen;
 use App\Models\Marca;
 use Livewire\Component;
 use App\Models\Producto;
 use App\Models\SubCategoria;
 use Illuminate\Database\Eloquent\Builder;
+
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Str;
 
@@ -86,6 +89,14 @@ class EditarProducto extends Component
         $this->producto->save();
 
         $this->emit('saved');
+    }
+
+    public function deleteImagen(Imagen $imagen)
+    {
+        Storage::delete([$imagen->url]);
+        $imagen->delete();
+
+        $this->producto = $this->producto->fresh();
     }
 
     public function render()

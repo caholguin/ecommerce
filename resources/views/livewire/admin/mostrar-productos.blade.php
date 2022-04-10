@@ -35,7 +35,12 @@
               <td>
                 <div class="row">
                   <div class="col-md-2">
-                    <img  src="{{Storage::url( $producto->imagenes->first()->url)}}" height="50px" width="50px" alt="" style="border-radius: 40px">
+                    @if ($producto->imagenes->count())                    
+                      <img  src="{{Storage::url( $producto->imagenes->first()->url)}}" height="50px" width="50px" alt="" style="border-radius: 40px">                        
+                    
+                      @else
+                        <img width="50px" height="50px" style="border-radius: 40px" src="https://images.pexels.com/photos/11387249/pexels-photo-11387249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                      @endif
                   </div>
                   <div class="col pt-3">
                     {{$producto->nombre}}
