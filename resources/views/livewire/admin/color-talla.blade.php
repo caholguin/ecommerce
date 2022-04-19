@@ -77,7 +77,7 @@
                                 </td>
                                 <td width="10px">
                                     <button
-                                    wire:click="$emit('deletePivot',{{$tallaColor->pivot->id}})"
+                                    wire:click="$emit('deleteColorTalla',{{$tallaColor->pivot->id}})"
                                     class="btn btn-pill btn-danger">eliminar</button>
                                 </td>
                             </tr>
@@ -139,7 +139,7 @@
 </div>
 
 
-@push('script')
+{{-- @push('script')
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         window.Livewire.on('show-modal-cantidadColorTalla',msg => {
@@ -176,4 +176,4 @@
     })
 </script>
 
-@endpush
+@endpush --}}

@@ -61,7 +61,7 @@
         <div class="mt-4" >
             <div wire:ignore>
                 <label for="">Descripción</label>
-                <textarea class="form-control " name="" id="" cols="" rows="4" 
+                <textarea wire:model="descripcion" class="form-control " name="" id="" cols="" rows="4" 
                 {{-- wire:model="descripcion"
                 x-data 
                 x-init="ClassicEditor.create($refs.miEditor)

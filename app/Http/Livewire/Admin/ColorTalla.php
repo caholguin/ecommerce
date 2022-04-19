@@ -12,6 +12,8 @@ class ColorTalla extends Component
 
     public $pivot,$pivot_color_id, $pivot_cantidad;
 
+    protected $listeners = ['delete'];
+
     protected $rules = [
         'color_id' => 'required',
         'cantidad' => 'required|numeric'
@@ -76,6 +78,10 @@ class ColorTalla extends Component
         $this->emit('cantidadColorTalla-atualizado','hide modal'); 
     }
 
+    public function delete(Pivot $pivot){
+        $pivot->delete();
+        $this->talla = $this->talla->fresh();
+    }
 
     public function render()
     {

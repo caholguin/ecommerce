@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 
 class MostrarProductos extends Component
 {
-    use WithPagination;
+    use WithPagination;   
 
     protected $paginationTheme = "bootstrap";
 
@@ -17,7 +17,8 @@ class MostrarProductos extends Component
         $this->resetPage();
     }
 
-    public $search;
+    public $search;   
+   
 
     public function render()
     {

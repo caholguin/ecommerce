@@ -81,8 +81,28 @@
       @endif
     </div>
   </div>
-</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  @push('script')
+    <script>
+      
+    </script>
+  @endpush
+
+  
+
+</div>
 
 
 

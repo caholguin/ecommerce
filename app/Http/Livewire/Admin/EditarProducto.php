@@ -31,6 +31,8 @@ class EditarProducto extends Component
         'producto.cantidad' => 'numeric',
     ];
 
+    protected $listeners = ['refreshProducto','delete'];
+
     public function mount(Producto $producto)
     {           
         $this->producto = $producto;
@@ -91,12 +93,33 @@ class EditarProducto extends Component
         $this->emit('saved');
     }
 
+    public function refreshProducto(){
+        $this->producto = $this->producto->fresh();
+    }
+
     public function deleteImagen(Imagen $imagen)
     {
         Storage::delete([$imagen->url]);
         $imagen->delete();
 
         $this->producto = $this->producto->fresh();
+    }
+
+    public function delete()
+    {
+        $imagenes = $this->producto->imagenes;
+
+        foreach ($imagenes as $imagen) {
+            Storage::delete($imagen->url);
+            $imagen->delete();
+
+        }
+        
+        $this->producto->delete();            
+        return redirect()->route('admin.index');
+
+    /*  $this->refreshProducto(); */
+
     }
 
     public function render()

@@ -38,7 +38,7 @@ class ProductoFactory extends Factory
             'subcategoria_id' => $subcategoria->id,
             'marca_id' => $marca->id,
             'cantidad' => $cantidad,
-            'estado' => 2
+            'estado' => 1
         ];
     }
 }

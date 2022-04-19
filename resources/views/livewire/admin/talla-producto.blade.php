@@ -78,7 +78,7 @@
 
 </div>
 
-@push('script')
+{{-- @push('script')
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         window.Livewire.on('show-modal-tallap',msg => {
@@ -88,30 +88,7 @@
             $('#editartallaP').modal('hide')                
         });
     });
-</script>
+</script> 
 
-<script>
-    Livewire.on('eliminarTalla',tallaId => {
-        Swal.fire({
-        title: 'Esta seguro que desea eliminar esta talla?',
-        text: "",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes!'
-        }).then((result) => {
-        if (result.isConfirmed) {
 
-            Livewire.emitTo('admin.talla-producto','delete', tallaId);
-
-            Swal.fire(
-            'Talla eliminada correctamente',
-            '',
-            'success'
-            )
-        }
-        })
-    })
-</script>
-@endpush
+@endpush--}}

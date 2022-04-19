@@ -193,23 +193,14 @@
                                 </li>
                                 {{-- ************************************** --}}
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav active" href="{{route('admin.index')}}"><i class="fas fa-grid"></i><span>Productos</span><div class="according-menu"></div></a>
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.index')}}"><i class="fas fa-grid"></i><span>Productos</span><div class="according-menu"></div></a>                                
                                 </li>
+
+                               
                                 
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav active"
-                                     href="https://laravel.pixelstrap.com/viho/kanban">
-                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" 
-                                     height="24" viewBox="0 0 24 24" fill="none"
-                                      stroke="currentColor" stroke-width="2" 
-                                      stroke-linecap="round" stroke-linejoin="round" 
-                                      class="feather feather-monitor"><rect x="2" y="3"
-                                       width="20" height="14" rx="2" ry="2"></rect>
-                                       <line x1="8" y1="21" x2="16" y2="21"></line>
-                                       <line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                                       <span>Kanban Board</span>
-                                       <div class="according-menu">
-                                           <i class="fa fa-angle-down"></i></div></a>
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.categorias.index')}}"><i class="fas fa-grid"></i><span>Categorias</span><div class="according-menu"></div></a>                                
+
                                 </li>
                             </ul>
                         </div>

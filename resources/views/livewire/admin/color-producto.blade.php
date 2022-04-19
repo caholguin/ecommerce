@@ -135,7 +135,7 @@
 
     
 
-@push('script')
+{{-- @push('script')
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         window.Livewire.on('show-modal-colorp',msg => {
@@ -147,31 +147,8 @@
     });
 </script>
 
-<script>
-    Livewire.on('deletePivot', pivot => {
-        Swal.fire({
-            title: 'Estas seguro que deseas eliminar este color?',
-            text: "",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes!'
-            }).then((result) => {
-            if (result.isConfirmed) {
 
-                Livewire.emitTo('admin.color-producto','delete',pivot);
-                
-                Swal.fire(
-                'Color eliminado correctamente',
-                ' ',
-                'success'
-                )
-            }
-        })
-    })
-</script>
 
-@endpush
+@endpush --}}
     
  

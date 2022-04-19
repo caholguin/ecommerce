@@ -5,6 +5,17 @@
         }        
     </style>
 
+
+    <div class="row ">
+        <div class="col-10 ">
+
+        </div>
+        <div class="col">
+            <button wire:click="$emit('eliminarProducto')"  class=" btn btn-pill btn-danger">Eliminar</button>
+        </div>
+    </div>
+
+
     <h4 class="text-center mt-4">Complete esta informacíon para crear un producto</h4>
 
     <div class="mb-4 form" wire:ignore>
@@ -42,6 +53,8 @@
             </div>
         </section>
     @endif
+
+    @livewire('admin.estado-producto', ['producto' => $producto], key('estado-producto-'.$producto->id))
    
 
     <div class="container card rounded">
@@ -226,8 +239,144 @@
                 acceptedFiles: 'image/*',
                 paramName: "file", // The name that will be used to transfer the file
                 maxFilesize: 2, // MB
-            
+                complete: function(file){
+                    this.removeFile(file);
+                },
+                queuecomplete: function(){
+                    Livewire.emit('refreshProducto');
+                }
             };
+
+
+        Livewire.on('eliminarTalla',tallaId => {
+            Swal.fire({
+            title: 'Esta seguro que desea eliminar esta talla?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                Livewire.emitTo('admin.talla-producto','delete', tallaId);
+
+                Swal.fire(
+                'Talla eliminada correctamente',
+                '',
+                'success'
+                )
+            }
+            })
+        })
+
+
+
+    Livewire.on('deletePivot', pivot => {
+        Swal.fire({
+            title: 'Estas seguro que deseas eliminar este color?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                Livewire.emitTo('admin.color-producto','delete',pivot);
+                
+                Swal.fire(
+                'Color eliminado correctamente',
+                ' ',
+                'success'
+                )
+            }
+        })
+    })
+
+
+    Livewire.on('deleteColorTalla', pivot => {
+        Swal.fire({
+            title: 'Estas seguro que deseas eliminar este color?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                Livewire.emitTo('admin.color-talla','delete',pivot);
+                
+                Swal.fire(
+                'Color eliminado correctamente',
+                ' ',
+                'success'
+                )
+            }
+        })
+    })
+
+
+    Livewire.on('eliminarProducto',() => {
+            Swal.fire({
+            title: 'Esta seguro que desea eliminar este producto?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                Livewire.emitTo('admin.editar-producto','delete'); 
+
+                Swal.fire(
+                'Producto eliminado correctamente',
+                '',
+                'success'
+                )
+            }
+            })
+        })
+
+
+
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded',function(){
+        window.Livewire.on('show-modal-tallap',msg => {
+            $('#editartallaP').modal('show')                
+        });
+        window.Livewire.on('tallap-atualizado',msg => {
+            $('#editartallaP').modal('hide')                
+        });
+
+        window.Livewire.on('show-modal-colorp',msg => {
+            $('#exampleModal').modal('show')                
+        });
+        window.Livewire.on('color-atualizado',msg => {
+            $('#exampleModal').modal('hide')                
+        });
+
+        window.Livewire.on('show-modal-cantidadColorTalla',msg => {
+            $('#editcantidadColorTalla').modal('show')                
+        });
+        window.Livewire.on('cantidadColorTalla-atualizado',msg => {
+            $('#editcantidadColorTalla').modal('hide')                
+        });
+    });
+
+
+   
+    
         </script>
     @endpush
 
