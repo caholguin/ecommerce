@@ -152,7 +152,8 @@ return [
         'marca_id' => 'marca',
         'color_id' => 'color',
         'pivot_color_id' => 'color',
-        'pivot_cantidad' => 'cantidad'
+        'pivot_cantidad' => 'cantidad',
+        
 
     ],
 
