@@ -52,6 +52,12 @@ class CrearCategoria extends Component
         'createForm.icono' => 'icono',
         'createForm.imagen' => 'imagen',
         'createForm.marcas' => 'marcas',
+
+        'editForm.nombre' => 'nombre',
+        'editForm.slug' => 'slug',
+        'editForm.icono' => 'icono',
+        'editImagen' => 'imagen',
+        'editForm.marcas' => 'marcas',
     ];
 
     public function mount()
@@ -65,6 +71,11 @@ class CrearCategoria extends Component
     public function updatedcreateFormNombre($value)
     {
         $this->createForm['slug'] = Str::slug($value);
+    }
+
+    public function updatededitFormNombre($value)
+    {
+        $this->editForm['slug'] = Str::slug($value);
     }
 
     public function obtenerMarcas()
@@ -103,16 +114,51 @@ class CrearCategoria extends Component
     public function edit(Categoria $categoria)
     {
         $this->reset(['editImagen']);
+
+        $this->resetValidation();
         
         $this->categoria = $categoria;
      
         $this->editForm['nombre'] = $categoria->nombre;
         $this->editForm['slug'] = $categoria->slug;
         $this->editForm['icono'] = $categoria->icono;
-        $this->editForm['imagen'] = Storage::url($categoria->imagen);
+        /* $this->editForm['imagen'] = Storage::url($categoria->imagen); */
+        $this->editForm['imagen'] = $categoria->imagen;
         $this->editForm['marcas'] = $categoria->marcas->pluck('id');
 
         $this->emit('show-modal-categoria','show modal');
+    }
+
+    public function update()
+    {
+
+        $rules = [
+            'editForm.nombre' => 'required',
+            'editForm.slug' => 'required|unique:categorias,slug,' . $this->categoria->id,
+            'editForm.icono' => 'required',
+            /* 'editImagen' => 'image|max:1024', */
+            'editForm.marcas' => 'required', 
+        ];
+
+        if ($this->editImagen) {
+            $rules['editImagen'] = 'required|image|max:1024';
+        }
+
+        $this->validate($rules);
+
+        if ($this->editImagen) {
+           Storage::delete([$this->editForm['imagen'] ]);
+           $this->editForm['imagen'] = $this->editImagen->store('categorias');
+        }
+
+        $this->categoria->update($this->editForm);
+
+        $this->categoria->marcas()->sync($this->editForm['marcas']);
+
+        $this->reset(['editForm','editImagen']);
+        $this->mostrarCategorias();
+
+        $this->emit('categoria-atualizada','hide modal'); 
     }
 
     public function delete(Categoria $categoria)
@@ -129,6 +175,6 @@ class CrearCategoria extends Component
 }
 
 
-/* $this->emit('color-atualizado','hide modal');    
+/*    
     
 */    

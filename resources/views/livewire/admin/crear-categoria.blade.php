@@ -134,7 +134,7 @@
                     @if ($editImagen)
                         <img class="text-center" height="400" width="765px" src="{{$editImagen->temporaryUrl()}}" alt=""> 
                     @else
-                        <img class="text-center" height="400" width="765px" src="{{$editForm['imagen']}}" alt="">                        
+                        <img class="text-center" height="400" width="765px" src="{{Storage::url($editForm['imagen'])}}" alt="">                        
                     @endif
                 </div>
 
@@ -203,7 +203,7 @@
             <button 
                 wire:click="update"
                 wire:loading.attr="disabled"
-                wire:target="editImagen {{-- update --}}"
+                wire:target="editImagen,update"
             type="button" class="btn btn-primary">Actualizar</button>
             </div>
         </div>
@@ -224,7 +224,7 @@
             window.Livewire.on('show-modal-categoria',msg => {
                 $('#editarCategoria').modal('show')                
             });
-            window.Livewire.on('categoria-atualizado',msg => {
+            window.Livewire.on('categoria-atualizada',msg => {
                 $('#editarCategoria').modal('hide')                
             });
         });
