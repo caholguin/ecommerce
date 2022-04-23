@@ -16,27 +16,27 @@ class CategoriaSeeder extends Seeder
             [
                 'nombre' => 'Celulares y tablets',
                 'slug' => Str::slug('Celulares y tablets'),
-                'icono' => '<i class="fa-solid fa-mobile-notch"></i>'
+                'icono' => '<i class="fa-solid fa-tablet-screen-button"></i>'
             ],
             [
                 'nombre' => 'Tv audio y video',
                 'slug' => Str::slug('Tv audio y video'),
-                'icono' => '<i class="fa-solid fa-tv-music"></i>'
+                'icono' => '<i class="fas fa-tv"></i>'
             ],
             [
                 'nombre' => 'Consolas y videojuegos',
                 'slug' => Str::slug('Consolas y videojuegos'),
-                'icono' => '<i class="fa-regular fa-gamepad-modern"></i>'
+                'icono' => '<i class="fas fa-gamepad"></i>'
             ],
             [
                 'nombre' => 'Computación',
                 'slug' => Str::slug('Computación'),
-                'icono' => '<i class="fa-regular fa-laptop-code"></i>'
+                'icono' => '<i class="fas fa-laptop-code"></i>'
             ],
             [
                 'nombre' => 'Moda',
                 'slug' => Str::slug('Moda'),
-                'icono' => '<i class="fa-regular fa-shirt"></i>'
+                'icono' => '<i class="fas fa-tshirt"></i>'
             ],
         ];
 

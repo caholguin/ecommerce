@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 
+    <style>
+        .icon{
+            margin-right: 10px;
+        }
+    </style>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,16 +26,15 @@
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
         rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">  
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6/css/all.min.css') }}">  
     <!-- Font Awesome-->
 
-       {{-- <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script>
+       {{--  <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>   --}}
-
-
+        crossorigin="anonymous" referrerpolicy="no-referrer"/> --}}
+        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     <!-- ico-font--> 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/icofont.css') }}">
@@ -106,7 +111,7 @@
                                     data-feather="maximize"></i></a></li>
 
                         <li>
-                            <div class="mode"><i class="fa fa-moon-o"></i></div>
+                            <div class="mode"><i class="fa-solid fa-moon"></i></div>
                         </li>
 
                         {{-- <li class="onhover-dropdown p-0">
@@ -126,6 +131,7 @@
                                         <form action="{{ route('logout') }}" class="" method="POST">
                                             @csrf
                                             <button type="submit" class="btn">Cerrar sesión</button>
+                                            
                                         </form>
                                     </li>
                                 </ul>
@@ -173,6 +179,7 @@
                         <li>
                             <span>2 year</span>
                             <p>Experince</p>
+                            
                         </li>
                         <li>
                             <span><span class="counter">95.2</span>k</span>
@@ -193,13 +200,13 @@
                                 </li>
                                 {{-- ************************************** --}}
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.index')}}"><i class="fas fa-grid"></i><span>Productos</span><div class="according-menu"></div></a>                                
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.index')}}"><i class="icon fa-solid fa-list-check"></i><span>Productos</span><div class="according-menu"></div></a>                                
                                 </li>
 
                                
                                 
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.categorias.index')}}"><i class="fas fa-grid"></i><span>Categorias</span><div class="according-menu"></div></a>                                
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.categorias.index')}}"><i class="icon fa-solid fa-list-check"></i><span>Categorias</span><div class="according-menu"></div></a>                                
 
                                 </li>
                             </ul>

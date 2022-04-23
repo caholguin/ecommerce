@@ -23,7 +23,7 @@ class CreateSubCategoriasTable extends Migration
             $table->boolean('talla')->default(false);            
 
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias');            
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');            
 
             $table->timestamps();
         });

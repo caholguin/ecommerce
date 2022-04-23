@@ -7,6 +7,7 @@ use App\Models\Marca;
 use Livewire\Component;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 use Livewire\WithFileUploads;
 
@@ -14,7 +15,9 @@ class CrearCategoria extends Component
 {
     use WithFileUploads;
     
-    public $marcas,$rand,$categorias;
+    public $marcas,$rand,$categorias,$categoria;
+
+    protected $listeners = ['delete'];
 
     public $createForm = [
         'nombre' => null,
@@ -23,6 +26,17 @@ class CrearCategoria extends Component
         'imagen' => null,
         'marcas' => [],
     ];
+
+
+    public $editForm = [
+        'nombre' => null,
+        'slug' => null,
+        'icono' => null,
+        'imagen' => null,
+        'marcas' => [],
+    ];
+
+    public $editImagen;
 
     protected $rules = [
         'createForm.nombre' => 'required',
@@ -83,6 +97,28 @@ class CrearCategoria extends Component
         $this->reset('createForm');
 
         $this->mostrarCategorias();
+        $this->emit('saved');
+    }
+
+    public function edit(Categoria $categoria)
+    {
+        $this->reset(['editImagen']);
+        
+        $this->categoria = $categoria;
+     
+        $this->editForm['nombre'] = $categoria->nombre;
+        $this->editForm['slug'] = $categoria->slug;
+        $this->editForm['icono'] = $categoria->icono;
+        $this->editForm['imagen'] = Storage::url($categoria->imagen);
+        $this->editForm['marcas'] = $categoria->marcas->pluck('id');
+
+        $this->emit('show-modal-categoria','show modal');
+    }
+
+    public function delete(Categoria $categoria)
+    {
+        $categoria->delete();
+        $this->mostrarCategorias();
     }
 
 
@@ -91,3 +127,8 @@ class CrearCategoria extends Component
         return view('livewire.admin.crear-categoria');
     }
 }
+
+
+/* $this->emit('color-atualizado','hide modal');    
+    
+*/    
