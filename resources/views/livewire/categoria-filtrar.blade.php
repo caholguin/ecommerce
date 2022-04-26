@@ -16,8 +16,8 @@
                     <h2 class="">Subcategorias</h2>                         
                     @foreach ($categoria->subcategorias as $subcategoria)
                         <li class="li-subcategorias">
-                            <a style="cursor:pointer;" class="{{$subcategoria == $subcategoria->nombre ? 'text-danger' : ''}}" 
-                            wire:click="$set('subcategoria', '{{$subcategoria->nombre}}')"                            
+                            <a style="cursor:pointer;" class="{{$subcategoria == $subcategoria->slug ? 'text-danger' : ''}}" 
+                            wire:click="$set('subcategoria', '{{$subcategoria->slug}}')"                            
                             >{{$subcategoria->nombre}}</a>
                         </li>
                     @endforeach
@@ -40,7 +40,7 @@
 
         <div class="caja">
             <div class="grid-layout-2">
-                @foreach ($productos->where('estado',1) as $producto)
+                @forelse ($productos->where('estado',1) as $producto)
                 <div class="card-productos" >
                     <img class="img-productos" src="{{ Storage::url($producto->imagenes->first()->url) }}" height="150" width="250" class="img-producto" alt="" >
                     <div class="container">
@@ -60,7 +60,12 @@
                         </div>
                     </div>
                 </div>
-                @endforeach                
+                @empty
+                <div class="alert alert-danger" role="alert">
+                    No hay productos disponibles con ese filtro
+                  </div>
+               
+                @endforelse               
             </div>
 
             <div>

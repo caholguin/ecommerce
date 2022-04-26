@@ -127,7 +127,7 @@ class SubCategoriaSeeder extends Seeder
         ];
 
         foreach ($subcategorias as $subcategoria) {
-            SubCategoria::factory(1)->create($subcategoria);
+            SubCategoria::create($subcategoria);
         }
     }
 }

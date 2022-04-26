@@ -98,9 +98,9 @@
                                             {!!$categoria->icono!!}
                                         </span>
 
-                                        <span class="text-uppercase ">
+                                        <a href="{{route('admin.categorias.show', $categoria)}}" class="text-uppercase text-white">
                                             {{$categoria->nombre}}
-                                        </span>
+                                        </a>
                                     </td>
                                     <td width="10px">                                
                                         <a wire:click="edit('{{$categoria->slug}}')" class="btn btn-pill btn-secondary">Editar</a>                        
@@ -126,7 +126,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar color</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Editar categoria</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -16,11 +16,23 @@ class CategoriaFiltrar extends Component
 
     public $categoria, $subcategoria, $marca;
 
+    protected $queryString = ['subcategoria','marca'];
+
     public function limpiar()
     {
-        $this->reset(['subcategoria','marca']);
+        $this->reset(['subcategoria', 'marca', 'page']);
+        $this->resetPage();
     }
 
+    public function updatedSubcategoria()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedMarca()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
@@ -42,7 +54,7 @@ class CategoriaFiltrar extends Component
 
         if ($this->subcategoria) {
             $productosQuery = $productosQuery->wherehas('subcategoria',function(Builder $query){
-                $query->where('nombre', $this->subcategoria);
+                $query->where('slug', $this->subcategoria);
             });
         }
 

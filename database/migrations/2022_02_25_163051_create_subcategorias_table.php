@@ -17,8 +17,7 @@ class CreateSubCategoriasTable extends Migration
             $table->id();
 
             $table->string('nombre');
-            $table->string('slug');
-            $table->string('imagen');
+            $table->string('slug');            
             $table->boolean('color')->default(false);
             $table->boolean('talla')->default(false);            
 
