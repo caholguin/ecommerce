@@ -3,7 +3,7 @@
     <nav class="navbar">
 
         
-        @foreach ($categorias as $categoria)
+     {{--    @foreach ($categorias as $categoria)
             <div class="dropdown">
                 <a href="{{route('categorias.show',$categoria)}}" class="dropbtn">{{$categoria->nombre}}</a>
                 <div class="dropdown-content">
@@ -12,8 +12,18 @@
                     @endforeach
                 </div>
             </div>  
-        @endforeach  
+        @endforeach   --}}
 
+        <div class="dropdown" >
+            <a  class="dropbtn">Categorias</a>
+            <div class="dropdown-content">
+                @foreach ($categorias as $categoria)
+                    <a href="{{route('categorias.show',$categoria)}}">{{$categoria->nombre}}</a>                    
+                @endforeach
+            </div>
+            
+        </div>  
+        
     </nav>
 
     <div class="icons">
@@ -36,17 +46,20 @@
 
     @auth
     <form action="{{route('logout')}}" class="login-form" method="POST">
-        @csrf
-        <button type="submit" class="btn">Cerrar sesión</button>
-        {{-- <input type="submit" value="login now" class="btn"> --}}
-        <a class="btn" href="{{route('ordenes.index')}}">Mis ordenes</a>
-        <a class="btn" href="{{route('admin.index')}}">Admin</a>
+        @csrf      
+        <a class="letras_usuario" href="{{route('ordenes.index')}}">Mis ordenes</a> 
+        <br>       
+        <a class="letras_usuario" href="{{route('admin.index')}}">Admin</a>
+        <br>
+        <button type="submit" class="letras_usuario btn_cerrarsesion">Cerrar sesión</button>
     </form>
    
     @else
     <div  class="login-form" >
-        <a class="btn" href="{{route('login')}}">Iniciar sesión</a>
-        <a class="btn" href="{{route('register')}}">Registrarse</a>
+        <a class="letras_usuario" href="{{route('login')}}">Iniciar sesión</a>
+        <br>
+        <br>
+        <a class="letras_usuario" href="{{route('register')}}">Registrarse</a>
     </div>
     @endauth
 </header>

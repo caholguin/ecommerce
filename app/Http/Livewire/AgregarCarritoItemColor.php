@@ -29,8 +29,8 @@ class AgregarCarritoItemColor extends Component
     public function updatedColorId($value)
     {
         $color = $this->producto->colores->find($value);
-        // $this->cantidad = $color->pivot->cantidad;
-        $this->cantidad = qty_available($this->producto->id,$color->id);
+         //$this->cantidad = $color->pivot->cantidad;
+        $this->cantidad = qty_available($this->producto->id,$color->id); 
         $this->options['color'] = $color->nombre;
         $this->options['color_id'] = $color->id;
     }

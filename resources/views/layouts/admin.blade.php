@@ -26,16 +26,10 @@
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
         rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6/css/all.min.css') }}">  
     <!-- Font Awesome-->
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-6/css/all.min.css') }}">  
 
-       {{--  <script src="https://kit.fontawesome.com/adb90ca2b0.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/> --}}
-        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-    <!-- ico-font--> 
+       
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/icofont.css') }}">
     <!-- Feather icon-->
@@ -200,7 +194,7 @@
                                 </li>
                                 {{-- ************************************** --}}
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav active {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.index')}}"><i class="icon fa-solid fa-list-check"></i><span>Productos</span><div class="according-menu"></div></a>                                
+                                    <a class="nav-link menu-title link-nav active {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.index')}}"><i class="icon fa-solid fa-boxes-stacked"></i><span>Productos</span><div class="according-menu"></div></a>                                
                                 </li>
 
                                

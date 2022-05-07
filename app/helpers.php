@@ -2,17 +2,15 @@
 
 use App\Models\Producto;
 use App\Models\Talla;
-use App\Models\Color;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-function cantidad($producto_id, $color_id = 2, $talla_id = 1)
+function cantidad($producto_id, $color_id = null, $talla_id = null)
 {
      $producto = Producto::find($producto_id);
 
     if ($talla_id) {
-          $talla = Talla::find($talla_id);
-          $cantidad = $talla->colores->find($color_id)->pivot->cantidad;
-        
+        $talla = Talla::find($talla_id);
+        $cantidad = $talla->colores->find($color_id)->pivot->cantidad;        
     }elseif ($color_id) {
         $cantidad = $producto->colores->find($color_id)->pivot->cantidad;
     }else{
@@ -40,8 +38,9 @@ function qty_added($producto_id, $color_id = null, $talla_id = null)
 
 function qty_available($producto_id, $color_id = null, $talla_id = null)
 {
-    //  return 4;
-    cantidad($producto_id, $color_id, $talla_id) - qty_added($producto_id, $color_id, $talla_id);
+     //return $color_id;
+     //cantidad($producto_id, $color_id, $talla_id);
+     return  cantidad($producto_id, $color_id, $talla_id) - qty_added($producto_id, $color_id, $talla_id);
 }
 
 function discount($item){
@@ -73,7 +72,7 @@ function discount($item){
     }
 
 
-}
+} 
 
 function increase($item){
     
@@ -106,4 +105,4 @@ function increase($item){
     }
 
     
-}
+} 
