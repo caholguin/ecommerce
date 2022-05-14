@@ -78,7 +78,7 @@ function increase($item){
     
     $producto = Producto::find($item->id);
 
-    $cantidad = cantidad($item->id, $item->options->color_id, $item->options->talla_id) + $item->cantidad;
+    $cantidad = cantidad($item->id, $item->options->color_id, $item->options->talla_id) + $item->qty;
 
 
     if ($item->options->talla_id) {

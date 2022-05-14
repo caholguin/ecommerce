@@ -99,7 +99,6 @@ class CrearCategoria extends Component
             'slug' => $this->createForm['slug'],
             'icono' => $this->createForm['icono'],
             'imagen' => $imagen,
-
         ]);
 
         $categoria->marcas()->attach($this->createForm['marcas']);

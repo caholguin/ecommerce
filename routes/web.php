@@ -33,10 +33,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-route::get('prueba1',function(){
+/* route::get('prueba1',function(){
     \Cart::destroy();
  });
-
+ */
 Route::get('carrito-compras', CarritoCompras::class)->name('carrito-compras');
 
 
@@ -55,24 +55,11 @@ Route::middleware(['auth'])->group(function(){
 // Route::get('ordenes/{orden}/pago',[OrdenController::class,'pago'])->name('ordenes.pago');
 
 
-Route::get('prueba',function (){
+/* Route::get('prueba',function (){
 
-    $hora = now()->subMinute(10);
+   
 
-   $ordenes = Orden::where('estado',1)->whereTime('created_at','<=', $hora)->get();
-
-   foreach ($ordenes as $orden) {
-    $items = json_decode($orden->contenido);
-   }
-
-   foreach ($items as $item) {
-        increase($item);
-   }
-
-   $orden->estado = 5;
-   $orden->save();
-
-   return "se formateo con exito";
+   return "se formateo con exito"; 
 
    //return cantidad(11, $color_id=2, $talla_id = 1);
-});
+}); */
