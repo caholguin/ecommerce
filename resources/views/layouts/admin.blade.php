@@ -204,6 +204,12 @@
                                 <li class="dropdown">
                                     <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.marcas.index')}}"><i class="icon fa-regular fa-registered"></i><span>Marcas</span><div class="according-menu"></div></a>                                
                                 </li>
+
+                                <li class="dropdown">
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.ordenes.index')}}"><i class="icon fa-solid fa-clipboard-check"></i><span>Ordenes</span><div class="according-menu"></div></a>                                
+                                </li>
+
+                                
                             </ul>
                         </div>
                         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
