@@ -194,11 +194,11 @@
                                 </li>
                                 {{-- ************************************** --}}
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav active {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.index')}}"><i class="icon fa-solid fa-boxes-stacked"></i><span>Productos</span><div class="according-menu"></div></a>                                
+                                    <a class=" nav-link menu-title link-nav {{request()->routeIs('admin.index') ? 'active' : ''}}" href="{{route('admin.index')}}"><i class="icon fa-solid fa-boxes-stacked"></i><span>Productos</span><div class="according-menu"></div></a>                                
                                 </li>                               
                                 
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.categorias.index')}}"><i class="icon fa-solid fa-list-check"></i><span>Categorias</span><div class="according-menu"></div></a>                                
+                                    <a class="nav-link menu-title link-nav {{request()->routeIs('admin.categorias.index') ? 'active' : ''}}" href="{{route('admin.categorias.index')}}"><i class="icon fa-solid fa-list-check"></i><span>Categorias</span><div class="according-menu"></div></a>                                
                                 </li>
 
                                 <li class="dropdown">
@@ -207,7 +207,7 @@
 
                                 <li class="dropdown">
                                     <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.ordenes.index')}}"><i class="icon fa-solid fa-clipboard-check"></i><span>Ordenes</span><div class="according-menu"></div></a>                                
-                                </li>
+                                </li>                               
 
                                 
                             </ul>

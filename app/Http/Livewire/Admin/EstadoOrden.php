@@ -6,7 +6,18 @@ use Livewire\Component;
 
 class EstadoOrden extends Component
 {
-    public $orden;
+    public $orden,$estado;
+
+    public function mount()
+    {
+        $this->estado = $this->orden->estado;
+    }
+
+    public function update()
+    {
+        $this->orden->estado = $this->estado;
+        $this->orden->save();
+    }
 
     public function render()
     {

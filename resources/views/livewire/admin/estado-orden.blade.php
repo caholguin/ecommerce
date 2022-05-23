@@ -1,7 +1,40 @@
 <div>
    <div class="card rounded">
-        <h5 class="container mt-3 mb-3">NÚMERO DE ORDEN - {{$orden->id}} </h5>
+        <h5 class="container mt-3 mb-3">NÚMERO DE ORDEN - {{$orden->id}} </h5>      
    </div>
+
+
+    <div class="container card rounded">
+        <form wire:submit.prevent="update">
+
+            <div class="row mb-3 mt-3">
+                <div class="radio radio-primary col-2">
+                    <input wire:model="estado" id="2" type="radio" name="estado" value="2">
+                    <label for="2" _msthash="4848584" _msttexthash="055376">Recibido</label>       
+                </div>
+
+                <div class="radio radio-primary col-2">
+                    <input wire:model="estado" id="3" type="radio" name="estado" value="3">
+                    <label for="3" _msthash="4848584" _msttexthash="055376">Enviado</label>       
+                </div>
+
+                <div class="radio radio-primary col-2">
+                    <input wire:model="estado" id="4" type="radio" name="estado" value="4">
+                    <label for="4" _msthash="4848584" _msttexthash="055376">Entregado</label>       
+                </div>
+
+                <div class="radio radio-primary col-2">
+                    <input wire:model="estado" id="5" type="radio" name="estado" value="5">
+                    <label for="5" _msthash="4848584" _msttexthash="055376">Anulado</label>       
+                </div>
+            </div>
+
+
+            <div class="mt-3 mb-3">
+                <button class="btn btn-primary">Actualizar</button>
+            </div>
+        </form>
+    </div>
 
     <div class="card rounded">
         <div class="row">
