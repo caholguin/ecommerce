@@ -1,10 +1,11 @@
 <div>
     <div class="row">
+
         <div class="col">
             <div class="card rounded">
                 <form wire:submit.prevent="save" class="container">
                     <div class="mt-2">                       
-                        <label class="form-label" >Nombre</label>
+                        <label class="form-label">Nombre</label>                        
                         <input wire:model.defer="nombre" class="form-control" type="text" placeholder="Ingrese el nombre" >
                     
                         @error('nombre')
@@ -18,7 +19,7 @@
                         </div>
                         <div class="col-5">
                             <x-jet-action-message class="text-primary " on="saved">
-                                <strong class="text-success">Subcategoria creada</strong>
+                                <strong class="text-success">Departamento creado</strong>
                             </x-jet-action-message> 
                         </div>
                     </div>
@@ -36,15 +37,15 @@
                             <th colspan="1"></th>          
                         </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($marcas as $marca)
-                                <tr>
-                                    <td>{{$marca->nombre}}</td>
+                        <tbody>                            
+                            @foreach ($departamentos as $departamento)
+                                <tr>                                   
+                                    <td>{{$departamento->nombre}}</td>
                                     <td width="10px">                                
-                                        <a wire:click="edit('{{$marca->id}}')" class="btn btn-pill btn-secondary">Editar</a>                        
+                                        <a wire:click="edit('{{$departamento->id}}')" class="btn btn-pill btn-secondary">Editar</a>                        
                                     </td>
                                     <td width="10px">
-                                        <button wire:click="$emit('eliminarmarca','{{$marca->id}}')" class="btn btn-pill btn-danger">Eliminar</button>     
+                                        <button wire:click="$emit('eliminardepartamento','{{$departamento->id}}')" class="btn btn-pill btn-danger">Eliminar</button>     
                                     </td>        
                                 </tr>
                             @endforeach
@@ -52,22 +53,20 @@
                     </table>
                 </div>
                 <div class="container mt-4 mb-4">
-                    {{$marcas->links()}}
+                     {{$departamentos->links()}}
                 </div> 
             </div>
         </div>
     </div>
-    
 
 
 
 
-
-    <div wire:ignore.self class="modal fade bd-example-modal-lg" id="editarMarca" tabindex="-1" role="dialog">
+    <div wire:ignore.self class="modal fade bd-example-modal-lg" id="editarDepartamento" tabindex="-1" role="dialog">
         <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar Marca</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Editar departamento</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">               
@@ -96,17 +95,20 @@
         </div>
         </div>
     </div>
+    
 </div>
+
+
 
 
 @push('script')
     <script>
         document.addEventListener('DOMContentLoaded',function(){
-            window.Livewire.on('show-modal-marca',msg => {
-                $('#editarMarca').modal('show')                
+            window.Livewire.on('show-modal-departamento',msg => {
+                $('#editarDepartamento').modal('show')                
             });
-            window.Livewire.on('marca-atualizada',msg => {
-                $('#editarMarca').modal('hide')                
+            window.Livewire.on('departamento-atualizado',msg => {
+                $('#editarDepartamento').modal('hide')                
             });
         });
     </script>
@@ -114,7 +116,7 @@
 
 
 <script>
-    Livewire.on('eliminarmarca',marcaId => {
+    Livewire.on('eliminardepartamento',departamentoId => {
         Swal.fire({
             title: 'Esta seguro que desea eliminar la marca',
             text: "",
@@ -126,7 +128,7 @@
             }).then((result) => {
             if (result.isConfirmed) {
 
-                Livewire.emitTo('admin.marca-component','delete',marcaId )
+                Livewire.emitTo('admin.departamento-component','delete',departamentoId )
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
