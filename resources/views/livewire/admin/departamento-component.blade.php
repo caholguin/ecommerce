@@ -118,7 +118,7 @@
 <script>
     Livewire.on('eliminardepartamento',departamentoId => {
         Swal.fire({
-            title: 'Esta seguro que desea eliminar la marca',
+            title: 'Esta seguro que desea eliminar el departamento?',
             text: "",
             icon: 'warning',
             showCancelButton: true,

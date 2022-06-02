@@ -29,8 +29,9 @@ class CreateOrdenesTable extends Migration
             $table->float('costo');
             $table->float('total');
             $table->json('contenido');
+            
 
-            $table->unsignedBigInteger('departamento_id')->nullable();
+            /* $table->unsignedBigInteger('departamento_id')->nullable();
             $table->foreign('departamento_id')->references('id')->on('departamentos');
 
             $table->unsignedBigInteger('ciudad_id')->nullable();
@@ -40,7 +41,9 @@ class CreateOrdenesTable extends Migration
             $table->foreign('distrito_id')->references('id')->on('distritos');
 
             $table->string('direccion')->nullable();
-            $table->string('referencia')->nullable();
+            $table->string('referencia')->nullable(); */
+
+            $table->json('envio')->nullable();
 
 
             $table->timestamps();

@@ -210,8 +210,13 @@
                                 </li>
                                 
                                 <li class="dropdown">
-                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.departamentos.index')}}"><i class="icon fa-regular fa-building"></i><span>Departamentos</span><div class="according-menu"></div></a>                                
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.departamentos.index')}}"><i class="fa-regular fa-square-kanban"></i><span>Departamentos</span><div class="according-menu"></div></a>                                
                                 </li>
+
+                                <li class="dropdown">
+                                    <a class="nav-link menu-title link-nav {{request()->is("admin.index") || request()->is("admin.index") ? "active" : ""}}" href="{{route('admin.ciudades.index')}}"><i class="icon fa-regular fa-building"></i><span>Departamentos</span><div class="according-menu"></div></a>                                
+                                </li>
+                                
                                 
 
                                 

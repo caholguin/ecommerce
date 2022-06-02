@@ -22,7 +22,8 @@ class EstadoOrden extends Component
     public function render()
     {
         $items = json_decode($this->orden->contenido);
-
-        return view('livewire.admin.estado-orden',compact('items'));
+        $envio = json_decode($this->orden->envio);
+        
+        return view('livewire.admin.estado-orden',compact('items','envio'));
     }
 }

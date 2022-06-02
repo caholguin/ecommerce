@@ -46,8 +46,8 @@
                         <h6>Los productos deben ser recogidos en tienda: Calle falsa 123</h6>
                     @else            
                         <h6>El producto sera enviado a: </h6>
-                        <h6>{{$orden->direccion}}</h6>                
-                        <h6> {{$orden->departamento->nombre}} - {{$orden->ciudad->nombre}} - {{$orden->distrito->nombre}} </h6>
+                        <h6>{{$envio->direccion}}</h6>                
+                        <h6> {{$envio->departamento}} - {{$envio->ciudad}} - {{$envio->distrito}} </h6>
                     @endif                
                 </div>
             </div>

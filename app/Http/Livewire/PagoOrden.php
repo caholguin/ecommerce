@@ -39,7 +39,8 @@ class PagoOrden extends Component
 
 
         $items = json_decode($this->orden->contenido);
+        $envio = json_decode($this->orden->envio);
 
-        return view('livewire.pago-orden', compact('items'));
+        return view('livewire.pago-orden', compact('items','envio'));
     }
 }

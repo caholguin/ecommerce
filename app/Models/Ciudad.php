@@ -26,4 +26,9 @@ class Ciudad extends Model
     {
         return $this->hasMany(Orden::class);
     }
+
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class);
+    }
 }

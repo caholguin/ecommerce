@@ -39,14 +39,14 @@ class OrdenController extends Controller
         $this->authorize('author',$orden);
 
         $items = json_decode($orden->contenido);
-
+        $envio = json_decode($orden->envio);
         // $this->authorize('author', $orden);
 
         // $items = json_decode($orden->contenido);
         // $envio = json_decode($orden->envio);
 
         // return view('orders.show', compact('order', 'items', 'envio'));
-        return view('ordenes.show', compact('orden','items'));
+        return view('ordenes.show', compact('orden','items','envio'));
 
     }
 }

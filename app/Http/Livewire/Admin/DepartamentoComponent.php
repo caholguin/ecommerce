@@ -6,8 +6,6 @@ use Livewire\Component;
 use App\Models\Departamento;
 use Livewire\WithPagination;
 
-
-
 class DepartamentoComponent extends Component
 {
     use WithPagination; 

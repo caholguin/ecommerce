@@ -61,8 +61,8 @@
                         <h2>Calle falsa 123</h2>
                     @else            
                         <h2>El producto sera enviado a: </h2>
-                        <h2>{{$orden->direccion}}</h2>                
-                        <h2> {{$orden->departamento->nombre}} - {{$orden->ciudad->nombre}} - {{$orden->distrito->nombre}} </h2>
+                        <h2>{{$envio->direccion}}</h2>                
+                        <h2> {{$envio->departamento}} - {{$envio->ciudad}} - {{$envio->distrito}} </h2>
                     @endif
                 
                 </div>
