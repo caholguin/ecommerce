@@ -9,6 +9,7 @@ class Categoria extends Model
 {
     use HasFactory;
     
+    //ensayo conexion  
 
     protected $fillable = ['nombre','slug','imagen','icono'];
 
