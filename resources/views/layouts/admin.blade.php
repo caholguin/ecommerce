@@ -192,7 +192,11 @@
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
                                 </li>
-                                {{-- ************************************** --}}
+                                {{-- ************************************** --}}                               
+                                <li class="dropdown">
+                                    <a class=" nav-link menu-title link-nav {{request()->routeIs('admin.usuarios.index') ? 'active' : ''}}" href="{{route('admin.usuarios.index')}}"><i class="icon fa-solid fa-boxes-stacked"></i><span>Usuarios</span><div class="according-menu"></div></a>                                
+                                </li> 
+
                                 <li class="dropdown">
                                     <a class=" nav-link menu-title link-nav {{request()->routeIs('admin.index') ? 'active' : ''}}" href="{{route('admin.index')}}"><i class="icon fa-solid fa-boxes-stacked"></i><span>Productos</span><div class="according-menu"></div></a>                                
                                 </li>                               

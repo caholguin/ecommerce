@@ -48,8 +48,10 @@
     <form action="{{route('logout')}}" class="login-form" method="POST">
         @csrf      
         <a class="letras_usuario" href="{{route('ordenes.index')}}">Mis ordenes</a> 
-        <br>       
-        <a class="letras_usuario" href="{{route('admin.index')}}">Admin</a>
+        <br>
+        @role('admin')
+            <a class="letras_usuario" href="{{route('admin.index')}}">Admin</a>
+        @endrole
         <br>
         <button type="submit" class="letras_usuario btn_cerrarsesion">Cerrar sesión</button>
     </form>
